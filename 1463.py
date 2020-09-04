@@ -1,23 +1,23 @@
 a = int(input())
-time = 0
-li = [2**i for i in range(20)]
-li += [3**i for i in range(13)]
-li.sort(reverse=True)
-print(li)
-while a != 1:
-    if a % 9 == 0:
-        a = a/3
-    elif a % 4 == 0:
-        a = a / 2
-    elif a % 3 == 0:
-        a = a/3
-    elif (a-1) % 9 == 0:
-        a -= 1
-    elif a % 2 == 0:
-        a = a/2
-    else:
-        a -= 1
-
-    time += 1
-
-print(time)
+li = []
+# j = a-10
+# if j <= 0:
+#     j = 1
+for i in range(a-9, a+1):
+    time = 0
+    num = i
+    while num != 1:
+        if num % 3 == 0:
+            num = num/3
+        elif num % 2 == 0:
+            num = num/2
+        else:
+            num -= 1
+        time += 1
+    li.append(time)
+    for k in range(0, len(li)-1):
+        if li[-1] > li[k] + 9-k:
+            li[-1] = li[k] + 9-k
+        # if li[-1] > li[k] + i - (k+1):
+        #     li[-1] = li[k] + i - (k+1)
+print(li[-1])
