@@ -1,7 +1,8 @@
-T = int(input())
+import sys
+T = int(sys.stdin.readline())
 li = []
 for i in range(T):
-    com = input()
+    com = sys.stdin.readline()
     if com[:3] == 'pus':
         li.append(int(com[5:]))
     elif com[:3] == 'top':
