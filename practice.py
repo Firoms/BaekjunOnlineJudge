@@ -22,3 +22,36 @@
 #     radius += 20
 #     t.penup()
 #     t.fd(100)
+
+
+from turtle import *
+import math
+speed(10000)
+color('white')
+bgcolor('black')
+penup()
+goto(0, -200)
+pendown()
+min_length = 20
+
+
+def draw_branch(l, w):
+    left(15)
+    draw_stick(l, w)
+    right(30)
+    draw_stick(l, w)
+    left(15)
+
+
+def draw_stick(l, w):
+    width(w)
+    forward(l)
+    if min_length < l:
+        draw_branch(math.ceil(l*0.8), math.ceil(w*0.6))
+    backward(l)
+
+
+penup()
+setheading(90)
+pendown()
+draw_branch(100, 10)
