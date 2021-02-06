@@ -1,27 +1,18 @@
-a = int(input())
-num = a
-time = 0
-while num != 1:
-    if num % 3 == 0:
-        num = num/3
-    elif num % 2 == 0:
-        num = num/2
-    else:
-        num -= 1
-    time += 1
-seq = time
+# 1로 만들기
+import sys
+num = int(sys.stdin.readline())
+cnt_list = [0, 0]
 
-for i in range(a-time, a):
-    newtime = 0
-    num = i
-    while num != 1:
-        if num % 3 == 0:
-            num = num/3
-        elif num % 2 == 0:
-            num = num/2
-        else:
-            num -= 1
-        newtime += 1
-    if a-i+newtime < time:
-        time = a-i+newtime
-print(time)
+for i in range(2,num+1):
+    if i%3==0 and i%2==0:
+        cnt_list.append(min(cnt_list[i//3], cnt_list[i//2], cnt_list[i-1])+1)
+    
+    elif i%3==0:
+        cnt_list.append(min(cnt_list[i//3], cnt_list[i-1])+1)
+    elif i%2==0:
+        cnt_list.append(min(cnt_list[i//2], cnt_list[i-1])+1)
+    else:
+        cnt_list.append(cnt_list[i-1]+1)
+
+print(cnt_list[-1])
+
