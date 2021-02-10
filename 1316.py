@@ -8,7 +8,7 @@ for i in range(T):
             if i == 0:
                 li.append(a[i])
                 continue
-            if a[i] == a[i-1]:
+            if a[i] == a[i - 1]:
                 pass
             else:
                 if a[i] in li:

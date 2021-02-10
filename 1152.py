@@ -1,6 +1,6 @@
 a = input()
 a = a.strip()
 b = []
-if a != '':
+if a != "":
     b = a.split(" ")
 print(len(b))

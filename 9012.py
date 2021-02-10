@@ -4,9 +4,9 @@ for k in range(T):
     a = input()
     li = []
     for i in a:
-        if i == '(':
-            li.append(')')
-        elif i == ')':
+        if i == "(":
+            li.append(")")
+        elif i == ")":
             try:
                 li.pop(-1)
             except:

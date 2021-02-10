@@ -1,4 +1,5 @@
 import string
+
 a = input()
 li = [i for i in string.ascii_uppercase]
 re_li = []

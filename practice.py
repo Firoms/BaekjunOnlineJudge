@@ -1,4 +1,3 @@
-
 # import turtle as t
 # side = 100
 # angle = 90
@@ -26,9 +25,10 @@
 
 from turtle import *
 import math
+
 speed(10000)
-color('white')
-bgcolor('black')
+color("white")
+bgcolor("black")
 penup()
 goto(0, -200)
 pendown()
@@ -47,7 +47,7 @@ def draw_stick(l, w):
     width(w)
     forward(l)
     if min_length < l:
-        draw_branch(math.ceil(l*0.8), math.ceil(w*0.6))
+        draw_branch(math.ceil(l * 0.8), math.ceil(w * 0.6))
     backward(l)
 
 

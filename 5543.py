@@ -6,4 +6,4 @@ for i in range(2):
     li2.append(int(input()))
 li1.sort()
 li2.sort()
-print(li1[0]+li2[0]-50)
+print(li1[0] + li2[0] - 50)

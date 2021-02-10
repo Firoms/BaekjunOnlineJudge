@@ -1,11 +1,13 @@
 # 피보나치 함수
 import sys
+
 T = int(sys.stdin.readline())
+
 
 def fibo(num):
     if num == 0 or num == 1:
         return num
-    elif num==-1:
+    elif num == -1:
         return 1
     if num == 10:
         return 55
@@ -19,9 +21,9 @@ def fibo(num):
         return 832040
     elif num == 31:
         return 1346269
-    return fibo(num-1)+ fibo(num-2)
+    return fibo(num - 1) + fibo(num - 2)
 
 
 for i in range(T):
     num = int(sys.stdin.readline())
-    print(fibo(num-1), fibo(num))
+    print(fibo(num - 1), fibo(num))

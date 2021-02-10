@@ -9,6 +9,6 @@ T = int(input())
 
 # print(fac(T))
 a = 1
-for i in range(2, T+1):
+for i in range(2, T + 1):
     a *= i
 print(a)

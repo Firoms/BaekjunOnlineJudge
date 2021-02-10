@@ -6,5 +6,5 @@ for i in range(T):
     osum = 0
     for j in b:
         for k in range(len(j)):
-            osum += k+1
+            osum += k + 1
     print(osum)

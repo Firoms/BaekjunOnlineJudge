@@ -10,7 +10,7 @@ def avg(scores):
             total += 40
         else:
             total += single_score
-    average = int(total/5)
+    average = int(total / 5)
     return average
 
 

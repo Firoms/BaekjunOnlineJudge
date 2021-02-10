@@ -1,6 +1,6 @@
 sent = input()
-alpha = 'abcdefghijklmnopqrstuvwxyz'
+alpha = "abcdefghijklmnopqrstuvwxyz"
 alpha = list(alpha)
-for i in alpha :
+for i in alpha:
     cnt = sent.count(i)
-    print(cnt, end =" ")
+    print(cnt, end=" ")

@@ -1,6 +1,6 @@
 a = input()
-time = (len(a)+1)//10
+time = (len(a) + 1) // 10
 for i in range(len(a)):
     print(a[i], end="")
-    if (i+1) % 10 == 0:
+    if (i + 1) % 10 == 0:
         print()

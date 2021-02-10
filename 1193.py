@@ -8,8 +8,8 @@ while a > b:
     i += 1
     time += 1
 
-b -= i-1
-c = a-b
+b -= i - 1
+c = a - b
 if time % 2 == 1:
     print(f"{c}/{time-c}")
 else:

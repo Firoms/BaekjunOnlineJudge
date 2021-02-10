@@ -8,7 +8,7 @@ def d(n):
     for i in str_num:
         str_sum += int(i)
     try:
-        li.remove(str_sum+num)
+        li.remove(str_sum + num)
     except:
         pass
 

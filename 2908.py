@@ -1,10 +1,10 @@
-a,b = input().split(' ')
+a, b = input().split(" ")
 
 
 c = a[::-1]
 d = b[::-1]
 
-if c>d :
+if c > d:
     print(c)
-else :
+else:
     print(d)
