@@ -1,2 +1,5 @@
-a, b = map(int, input().split())
-print(a / b)
+# A/B
+import sys
+
+A, B = map(int, sys.stdin.readline().split())
+print(A / B)
