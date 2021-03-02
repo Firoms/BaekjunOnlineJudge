@@ -11176,4 +11176,4 @@ syllables = [
     "힢",
     "힣",
 ]
-print(syllables[num-1])
+print(syllables[num - 1])
