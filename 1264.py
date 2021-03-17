@@ -1,9 +1,10 @@
 # 모음의 개수
 import sys
 from collections import defaultdict
-check = ['A', 'E', 'O', 'U', 'I', 'a', 'e', 'o', 'u', 'i']
+
+check = ["A", "E", "O", "U", "I", "a", "e", "o", "u", "i"]
 T = sys.stdin.readline().rstrip()
-while T!='#':
+while T != "#":
     alp_dict = defaultdict(int)
     for i in T:
         if i in check:
