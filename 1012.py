@@ -1,18 +1,18 @@
 # 유기농 배추
 import sys
-T = int(sys.stdin.readline().rstrip())
-sys.setrecursionlimit(10**6)
 
+T = int(sys.stdin.readline().rstrip())
+sys.setrecursionlimit(10 ** 6)
 
 
 for _ in range(T):
     farm = []
     M, N, K = map(int, sys.stdin.readline().split())
     for __ in range(N):
-        farm.append([0]*M)
+        farm.append([0] * M)
     for __ in range(K):
         X, Y = map(int, sys.stdin.readline().split())
-        farm[Y][X]=1
+        farm[Y][X] = 1
     worm_num = 0
 
     def erase(x, y):
@@ -29,7 +29,7 @@ for _ in range(T):
 
     for m in range(M):
         for n in range(N):
-            if farm[n][m]==1:
+            if farm[n][m] == 1:
                 worm_num += 1
                 erase(m, n)
     print(worm_num)
