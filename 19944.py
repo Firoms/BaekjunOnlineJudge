@@ -2,9 +2,9 @@
 import sys
 
 N, M = map(int, sys.stdin.readline().split())
-if M<=2:
+if M <= 2:
     print("NEWBIE!")
-elif N>=M:
+elif N >= M:
     print("OLDBIE!")
 else:
     print("TLE!")
