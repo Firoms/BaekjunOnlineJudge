@@ -1,6 +1,7 @@
 # 공
 
 import sys
+
 T = int(sys.stdin.readline().rstrip())
 ball = 1
 for _ in range(T):
