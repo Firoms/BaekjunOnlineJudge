@@ -2,18 +2,18 @@
 import sys
 
 N, M = map(int, (sys.stdin.readline().rstrip()).split(" "))
-tree_li = list(map(int, (sys.stdin.readline().rstrip()).split(" ")))
-tree_li.append(0)
-tree_li.sort(reverse=True)
-tree_length = 0
-last_tree = 0
+treeList = list(map(int, (sys.stdin.readline().rstrip()).split(" ")))
+treeList.append(0)
+treeList.sort(reverse=True)
+treeLength = 0
+lastTree = 0
 trees = 0
-for i in range(len(tree_li) - 1):
-    tree_length += (tree_li[i] - tree_li[i + 1]) * (i + 1)
-    if tree_length >= M:
-        last_tree = tree_li[i + 1]
+for i in range(len(treeList) - 1):
+    treeLength += (treeList[i] - treeList[i + 1]) * (i + 1)
+    if treeLength >= M:
+        lastTree = treeList[i + 1]
         trees = i + 1
         break
 
-last_tree += (tree_length - M) // trees
-print(last_tree)
+lastTree += (treeLength - M) // trees
+print(lastTree)

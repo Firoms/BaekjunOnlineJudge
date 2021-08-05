@@ -2,21 +2,21 @@
 import sys
 
 
-def notice_call():
+def noticeCall():
     N, L, D = map(int, sys.stdin.readline().split(" "))
-    break_start = -5
+    breakStart = -5
     for _ in range(N):
-        break_start += L + 5
-        break_finish = break_start + 5
-        for i in range(break_start, break_finish):
+        breakStart += L + 5
+        breakFinish = breakStart + 5
+        for i in range(breakStart, breakFinish):
             if i % D == 0:
                 print(i)
                 return
     while True:
-        if break_finish % D == 0:
-            print(break_finish)
+        if breakFinish % D == 0:
+            print(breakFinish)
             return
-        break_finish += 1
+        breakFinish += 1
 
 
-notice_call()
+noticeCall()

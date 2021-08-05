@@ -1,9 +1,10 @@
-li1 = []
-li2 = []
+# 상근날드
+burgerList = []
+drinkList = []
 for i in range(3):
-    li1.append(int(input()))
+    burgerList.append(int(input()))
 for i in range(2):
-    li2.append(int(input()))
-li1.sort()
-li2.sort()
-print(li1[0] + li2[0] - 50)
+    drinkList.append(int(input()))
+burgerList.sort()
+drinkList.sort()
+print(burgerList[0] + drinkList[0] - 50)

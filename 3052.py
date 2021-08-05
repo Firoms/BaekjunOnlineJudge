@@ -1,8 +1,9 @@
-li = []
-re_li = []
+# 나머지
+nums = []
+restList = []
 for i in range(10):
-    li.append(int(input()))
-for i in li:
-    re_li.append(i % 42)
-re_li = set(re_li)
-print(len(re_li))
+    nums.append(int(input()))
+for i in nums:
+    restList.append(i % 42)
+restList = set(restList)
+print(len(restList))

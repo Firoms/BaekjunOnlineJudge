@@ -1,6 +1,6 @@
 # 파일 옮기기
 import sys
 
-A1, B1 = map(int, sys.stdin.readline().split())
-A2, B2 = map(int, sys.stdin.readline().split())
-print(min([A1 + B2, A2 + B1]))
+A, B = map(int, sys.stdin.readline().split())
+C, D = map(int, sys.stdin.readline().split())
+print(min([A + D, C + B]))

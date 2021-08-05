@@ -1,9 +1,9 @@
+# 최댓값
 import copy
-
-li = []
+numList = []
 for i in range(9):
-    li.append(int(input()))
-re = copy.deepcopy(li)
-li.sort()
-print(li[-1])
-print(re.index(li[-1]) + 1)
+    numList.append(int(input()))
+numListCopy = copy.deepcopy(numList)
+numList.sort()
+print(numList[-1])
+print(numListCopy.index(numList[-1]) + 1)

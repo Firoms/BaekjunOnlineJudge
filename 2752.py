@@ -1,7 +1,7 @@
 # 세수정렬
 import sys
 
-num_li = list(map(int, sys.stdin.readline().split(" ")))
-num_li.sort()
-for i in num_li:
+nums = list(map(int, sys.stdin.readline().split(" ")))
+nums.sort()
+for i in nums:
     print(i, end=" ")

@@ -1,14 +1,14 @@
 # 공백 없는 A+B
 import sys
 
-C = sys.stdin.readline().rstrip()
+S = sys.stdin.readline().rstrip()
 
-if len(C) == 3:
-    if int(C[1:3]) == 10:
-        print(int(C[0]) + int(C[1:3]))
+if len(S) == 3:
+    if int(S[1:3]) == 10:
+        print(int(S[0]) + int(S[1:3]))
     else:
-        print(int(C[0:2]) + int(C[2]))
-elif len(C) == 4:
+        print(int(S[0:2]) + int(S[2]))
+elif len(S) == 4:
     print(20)
 else:
-    print(int(C[0]) + int(C[1]))
+    print(int(S[0]) + int(S[1]))

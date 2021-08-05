@@ -1,11 +1,12 @@
+# 소수 찾기
 T = int(input())
-li = list(map(int, input().split(" ")))
+numList = list(map(int, input().split(" ")))
 for i in range(2, 501):
     a = [j * i for j in range(2, 501)]
-    li = list(set(li) - set(a))
-li.sort()
+    numList = list(set(numList) - set(a))
+numList.sort()
 try:
-    li.remove(1)
+    numList.remove(1)
 except:
     pass
-print(len(li))
+print(len(numList))

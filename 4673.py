@@ -1,19 +1,19 @@
-li = [i for i in range(1, 10001)]
+# 셀프 넘버
+nums = [i for i in range(1, 10001)]
 
 
-def d(n):
-    num = n
-    str_num = str(num)
-    str_sum = 0
-    for i in str_num:
-        str_sum += int(i)
+def checkSelfNumber(num):
+    numStr = str(num)
+    strSum = 0
+    for i in numStr:
+        strSum += int(i)
     try:
-        li.remove(str_sum + num)
+        nums.remove(strSum + num)
     except:
         pass
 
 
 for i in range(10000):
-    d(i)
-for i in li:
+    checkSelfNumber(i)
+for i in nums:
     print(i)

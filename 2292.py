@@ -1,10 +1,11 @@
-a = int(input())
+# 벌집
+N = int(input())
 time = 0
-li = [i * 6 for i in range(1, 1600000)]
-b = 1
+multipleOfSixList = [i * 6 for i in range(1, 1600000)]
+M = 1
 i = 0
-while a > b:
-    b += li[i]
+while N > M:
+    M += multipleOfSixList[i]
     i += 1
     time += 1
 print(time + 1)

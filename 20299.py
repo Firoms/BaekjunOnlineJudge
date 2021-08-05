@@ -2,7 +2,7 @@
 import sys
 
 N, K, L = map(int, sys.stdin.readline().split())
-pass_li = []
+passList= []
 for _ in range(N):
     P = list(map(int, sys.stdin.readline().split()))
     if P[0] < L:
@@ -13,7 +13,7 @@ for _ in range(N):
         continue
     if sum(P) < K:
         continue
-    pass_li += P
-print(len(pass_li) // 3)
-for i in pass_li:
+    passList += P
+print(len(passList) // 3)
+for i in passList:
     print(i, end=" ")

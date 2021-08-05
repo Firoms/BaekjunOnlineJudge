@@ -9,7 +9,7 @@ B = sys.stdin.readline().rstrip().split(" ")
 A.sort()
 
 
-def find_num(num, li):
+def findNum(num, li):
     last = len(li) - 1
     first = 0
     while first <= last:
@@ -24,7 +24,7 @@ def find_num(num, li):
 
 
 for i in B:
-    if find_num(i, A) == False:
+    if findNum(i, A) == False:
         print(0)
     else:
         print(1)

@@ -3,7 +3,7 @@ import sys
 
 num = sys.stdin.readline().rstrip()
 num = num[::-1]
-num_dict = {
+numDict = {
     "0": 0,
     "1": 1,
     "2": 2,
@@ -21,9 +21,9 @@ num_dict = {
     "E": 14,
     "F": 15,
 }
-mul = 1
-ten = 0
+multiply = 1
+decimal = 0
 for i in num:
-    ten += num_dict[i] * mul
-    mul *= 16
-print(ten)
+    decimal += numDict[i] * multiply
+    multiply *= 16
+print(decimal)

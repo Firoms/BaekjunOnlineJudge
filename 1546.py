@@ -1,11 +1,12 @@
-c = int(input())
-li = input().split(" ")
-for i in range(len(li)):
-    li[i] = int(li[i])
-li.sort()
-for i in range(len(li)):
-    li[i] = int(li[i]) / int(li[-1]) * 100
-a = 0
-for i in li:
-    a += float(i)
-print(a / c)
+# 평균
+N = int(input())
+scoreList = input().split(" ")
+for i in range(len(scoreList)):
+    scoreList[i] = int(scoreList[i])
+scoreList.sort()
+for i in range(len(scoreList)):
+    scoreList[i] = int(scoreList[i]) / int(scoreList[-1]) * 100
+scoreSum = 0
+for i in scoreList:
+    scoreSum += float(i)
+print(scoreSum / N)

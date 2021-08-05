@@ -1,8 +1,8 @@
 # TV 크기
 import sys
 
-a, b, c = map(int, sys.stdin.readline().split(" "))
+D, H, W = map(int, sys.stdin.readline().split(" "))
 print(
-    int(((a ** 2) * (b ** 2) / (b ** 2 + c ** 2)) ** 0.5),
-    int(((a ** 2) * (c ** 2) / (b ** 2 + c ** 2)) ** 0.5),
+    int(((D ** 2) * (H ** 2) / (H ** 2 + W ** 2)) ** 0.5),
+    int(((D ** 2) * (W ** 2) / (H ** 2 + W ** 2)) ** 0.5),
 )

@@ -1,13 +1,14 @@
-a = list(map(int, input().split(" ")))
-b = len(a)
-for i in range(len(a) - 1):
-    if a[i] > a[i + 1]:
-        b += 1
+# 음계
+nums = list(map(int, input().split(" ")))
+lenNums = len(nums)
+for i in range(len(nums) - 1):
+    if nums[i] > nums[i + 1]:
+        lenNums += 1
     else:
-        b -= 1
-if b == 1:
+        lenNums -= 1
+if lenNums == 1:
     print("ascending")
-elif b == len(a) * 2 - 1:
+elif lenNums == len(nums) * 2 - 1:
     print("descending")
 else:
     print("mixed")

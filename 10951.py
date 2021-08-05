@@ -1,6 +1,7 @@
+# A+B - 4
 while True:
     try:
-        a, b = map(int, input().split(" "))
-        print(f"{a+b}")
+        A, B = map(int, input().split(" "))
+        print(f"{A+B}")
     except:
         break

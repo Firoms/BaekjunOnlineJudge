@@ -1,5 +1,5 @@
-b = input().split(" ")
-N, X = list(map(int, b))
+# X 보다 작은 수
+N, X = list(map(int, input().split(" ")))
 A = input().split(" ")
 A = list(map(int, A))
 

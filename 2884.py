@@ -1,9 +1,11 @@
-a, b = map(int, input().split(" "))
-c = a * 60 + b
-c -= 45
-a = c // 60
-b = c % 60
-if c < 0:
-    a = 23
-    b = 60 + c
-print(a, b)
+# 알람 시계
+
+H, M = map(int, input().split(" "))
+minute = H * 60 + M
+minute -= 45
+H = minute // 60
+M = minute % 60
+if minute < 0:
+    H = 23
+    M = 60 + minute
+print(H, M)

@@ -1,9 +1,9 @@
+# 수 정렬하기 2
 import sys
-
 T = int(sys.stdin.readline())
-li = []
+nums = []
 for i in range(T):
-    li.append(int(sys.stdin.readline()))
-li.sort()
-for i in li:
+    nums.append(int(sys.stdin.readline()))
+nums.sort()
+for i in nums:
     print(i)

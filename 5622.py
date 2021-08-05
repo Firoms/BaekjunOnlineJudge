@@ -1,5 +1,6 @@
-a = input()
-dic = {
+# 다이얼
+S = input()
+alpDict = {
     "A": 2,
     "B": 2,
     "C": 2,
@@ -28,7 +29,7 @@ dic = {
     "Z": 9,
 }
 time = 0
-for i in a:
-    time += dic[i]
-time += len(a)
+for i in S:
+    time += alpDict[i]
+time += len(S)
 print(time)

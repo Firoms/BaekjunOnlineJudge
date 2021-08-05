@@ -1,10 +1,9 @@
-a, b = input().split(" ")
+# 상수
+A, B = input().split(" ")
+reverseA = A[::-1]
+reverseB = B[::-1]
 
-
-c = a[::-1]
-d = b[::-1]
-
-if c > d:
-    print(c)
+if reverseA > reverseB:
+    print(reverseA)
 else:
-    print(d)
+    print(reverseB)

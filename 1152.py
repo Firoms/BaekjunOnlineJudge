@@ -1,6 +1,8 @@
-a = input()
-a = a.strip()
-b = []
-if a != "":
-    b = a.split(" ")
-print(len(b))
+# 단어의 개수
+import sys
+sentence = sys.stdin.readline().strip()
+if sentence != "":
+    wordList = sentence.split(" ")
+else:
+    wordList = []
+print(len(wordList))

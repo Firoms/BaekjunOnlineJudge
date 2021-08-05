@@ -1,20 +1,21 @@
+# 그룹 단어 체커
 T = int(input())
 time = 0
 for i in range(T):
-    a = input()
-    li = []
-    for i in range(len(a)):
+    word = input()
+    alpList = []
+    for i in range(len(word)):
         try:
             if i == 0:
-                li.append(a[i])
+                alpList.append(word[i])
                 continue
-            if a[i] == a[i - 1]:
+            if word[i] == word[i - 1]:
                 pass
             else:
-                if a[i] in li:
+                if word[i] in alpList:
                     time -= 1
                     break
-                li.append(a[i])
+                alpList.append(word[i])
         except:
             pass
 

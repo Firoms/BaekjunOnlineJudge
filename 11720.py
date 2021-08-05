@@ -1,6 +1,7 @@
-T = int(input())
-A = input()
-b = 0
-for i in range(T):
-    b += int(A[i])
-print(b)
+# 숫자의 합
+N = int(input())
+S = input()
+num = 0
+for i in range(N):
+    num += int(S[i])
+print(num)

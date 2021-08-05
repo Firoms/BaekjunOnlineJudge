@@ -1,11 +1,12 @@
-a = int(input())
-if a != 1:
-    for i in range(a):
+# 별 찍기 - 9
+N = int(input())
+if N != 1:
+    for i in range(N):
         print(" " * i, end="")
-        print("*" * ((a - i) * 2 - 1), end="")
+        print("*" * ((N - i) * 2 - 1), end="")
         print("", end=" \n")
-    for i in range(1, a - 1):
-        print(" " * (a - i - 1), end="")
+    for i in range(1, N - 1):
+        print(" " * (N - i - 1), end="")
         print("*" * ((i + 1) * 2 - 1), end="")
         print("", end=" \n")
-print("*" * ((a) * 2 - 1), end="")
+print("*" * ((N) * 2 - 1), end="")

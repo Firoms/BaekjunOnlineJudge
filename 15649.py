@@ -4,26 +4,25 @@ import sys
 N, M = map(int, sys.stdin.readline().split())
 
 
-def sun(num_li):
-    result_li = []
+def sunyeol(numList):
 
-    def add_sun(li, test_li):
-        for i in range(len(test_li)):
-            sun_li = list(li)
-            add_li = list(test_li)
-            if len(li) != M:
-                sun_li.append(add_li.pop(i))
-                add_sun(sun_li, add_li)
+    def addSunyeol(popList, testList):
+        for i in range(len(testList)):
+            sunList = list(popList)
+            addList = list(testList)
+            if len(popList) != M:
+                sunList.append(addList.pop(i))
+                addSunyeol(sunList, addList)
 
-        if len(li) == M:
-            for i in li:
+        if len(popList) == M:
+            for i in popList:
                 print(i, end=" ")
             print()
 
-    for i in range(len(num_li)):
-        add_li = list(num_li)
-        li = [add_li.pop(i)]
-        add_sun(li, add_li)
+    for i in range(len(numList)):
+        addList = list(numList)
+        popList = [addList.pop(i)]
+        addSunyeol(popList, addList)
 
 
-sun([i for i in range(1, N + 1)])
+sunyeol([i for i in range(1, N + 1)])

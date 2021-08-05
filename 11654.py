@@ -1,2 +1,3 @@
-a = input()
-print(ord(a))
+# 아스키 코드
+S = input()
+print(ord(S))

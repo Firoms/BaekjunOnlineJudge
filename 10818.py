@@ -1,4 +1,5 @@
-T = int(input())
-a = list(map(int, input().split(" ")))
-a.sort()
-print(a[0], a[-1])
+# 최소, 최대
+N = int(input())
+nums = list(map(int, input().split(" ")))
+nums.sort()
+print(nums[0], nums[-1])

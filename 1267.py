@@ -2,9 +2,9 @@
 import sys
 
 N = int(sys.stdin.readline().rstrip())
-call_li = list(map(int, sys.stdin.readline().split()))
+callList = list(map(int, sys.stdin.readline().split()))
 Y, M = 0, 0
-for i in call_li:
+for i in callList:
     Y += (i // 30 + 1) * 10
     M += (i // 60 + 1) * 15
 if Y <= M:

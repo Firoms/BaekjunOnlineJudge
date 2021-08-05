@@ -1,7 +1,8 @@
-m, n = map(int, input().split())
+# 소수 구하기
+M, N = map(int, input().split())
 
 
-def isprime(m, n):
+def isPrime(m, n):
     n += 1
     prime = [0] * n
     for i in range(2, int(n ** (1 / 2)) + 1):
@@ -14,4 +15,4 @@ def isprime(m, n):
             print(i)
 
 
-isprime(m, n)
+isPrime(M, N)

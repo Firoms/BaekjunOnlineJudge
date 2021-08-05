@@ -1,13 +1,13 @@
 # 단어 정렬
 N = int(input())
-word_list = []
+wordList = []
 for i in range(51):
-    word_list.append([])
+    wordList.append([])
 for i in range(N):
     word = input()
-    if word not in word_list[len(word)]:
-        word_list[len(word)].append(word)
+    if word not in wordList[len(word)]:
+        wordList[len(word)].append(word)
 for i in range(51):
-    word_list[i].sort()
-    for j in word_list[i]:
+    wordList[i].sort()
+    for j in wordList[i]:
         print(j)

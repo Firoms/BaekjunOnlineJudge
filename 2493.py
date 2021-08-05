@@ -3,21 +3,21 @@ import sys
 
 N = sys.stdin.readline()
 
-tower_li = list(map(int, sys.stdin.readline().split()))
-tower_dic = {}
-tower_check = list(tower_li)
+towerList = list(map(int, sys.stdin.readline().split()))
+towerDict = {}
+towerCheck = list(towerList)
 stack = []
-while tower_check:
-    tower_num = len(tower_check)
-    tower = tower_check.pop()
+while towerCheck:
+    towerNum = len(towerCheck)
+    tower = towerCheck.pop()
     while stack:
         if stack[-1] < tower:
-            tower_dic[stack[-1]] = tower_num
+            towerDict[stack[-1]] = towerNum
             stack.pop()
         else:
             break
     stack.append(tower)
 for i in stack:
-    tower_dic[i] = 0
-for i in tower_li:
-    print(tower_dic[i], end=" ")
+    towerDict[i] = 0
+for i in towerList:
+    print(towerDict[i], end=" ")

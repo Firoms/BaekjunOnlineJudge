@@ -1,5 +1,6 @@
-a = input()
-li = [
+# 알파벳 찾기
+S = input()
+alpList = [
     "a",
     "b",
     "c",
@@ -27,6 +28,6 @@ li = [
     "y",
     "z",
 ]
-for i in li[:-1]:
-    print(a.find(i), end=" ")
-print(a.find(li[-1]))
+for i in alpList[:-1]:
+    print(S.find(i), end=" ")
+print(S.find(alpList[-1]))

@@ -1,5 +1,6 @@
+# 2007년
 A, B = map(int, input().split(" "))
-dic = {
+daysPerMonthDict = {
     1: 31,
     2: 28,
     3: 31,
@@ -15,7 +16,7 @@ dic = {
 }
 date = 0
 for i in range(1, A):
-    date += dic[i]
+    date += daysPerMonthDict[i]
 date += B
 if date % 7 == 1:
     print("MON")

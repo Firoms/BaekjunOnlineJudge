@@ -1,7 +1,9 @@
-a, b = map(int, input().split(" "))
-if a > b:
+# 두 수 비교하기
+
+A, B = map(int, input().split(" "))
+if A > B:
     print(">")
-elif a == b:
+elif A == B:
     print("==")
 else:
     print("<")

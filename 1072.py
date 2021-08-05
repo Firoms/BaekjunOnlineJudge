@@ -1,18 +1,17 @@
 # 게임
 import sys
-import random
 
 X, Y = map(int, sys.stdin.readline().split())
 if X == Y:
     print(-1)
 else:
     per = int(100 * Y / X)
-    new_per = int(100 * Y / X)
+    newPer = int(100 * Y / X)
     if per + 1 == 100:
         print(-1)
     else:
         time = 0
-        while new_per < per + 1:
+        while newPer < per + 1:
             if int(100 * (Y + time + 1000000000) / (X + time + 1000000000)) < per + 1:
                 time += 1000000000
             elif int(100 * (Y + time + 10000000) / (X + time + 10000000)) < per + 1:
@@ -31,5 +30,5 @@ else:
                 time += 10
             else:
                 time += 1
-            new_per = int(100 * (Y + time) / (X + time))
+            newPer = int(100 * (Y + time) / (X + time))
         print(time)

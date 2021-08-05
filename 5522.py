@@ -1,7 +1,7 @@
 # 카드 게임
 import sys
 
-card_li = []
+cardList = []
 for _ in range(5):
-    card_li.append(int(sys.stdin.readline()))
-print(sum(card_li))
+    cardList.append(int(sys.stdin.readline()))
+print(sum(cardList))

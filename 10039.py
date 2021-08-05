@@ -1,17 +1,18 @@
-score_list = []
+# 평균 점수
+scoreList = []
 for i in range(5):
-    score_list.append(int(input()))
+    scoreList.append(int(input()))
 
 
 def avg(scores):
     total = 0
-    for single_score in scores:
-        if single_score < 40:
+    for singleScore in scores:
+        if singleScore < 40:
             total += 40
         else:
-            total += single_score
+            total += singleScore
     average = int(total / 5)
     return average
 
 
-print(avg(score_list))
+print(avg(scoreList))

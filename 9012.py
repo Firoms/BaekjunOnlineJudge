@@ -1,18 +1,19 @@
+# 괄호
 T = int(input())
 for k in range(T):
-    r = True
-    a = input()
-    li = []
-    for i in a:
+    cover = True
+    S = input()
+    symbolList = []
+    for i in S:
         if i == "(":
-            li.append(")")
+            symbolList.append(")")
         elif i == ")":
             try:
-                li.pop(-1)
+                symbolList.pop(-1)
             except:
-                r = False
+                cover = False
                 break
-    if r == True and len(li) == 0:
+    if cover == True and len(symbolList) == 0:
         print("YES")
     else:
         print("NO")

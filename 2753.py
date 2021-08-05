@@ -1,10 +1,11 @@
-a = int(input())
+# 윤년
+year = int(input())
 
-if a % 400 == 0:
+if year % 400 == 0:
     print(1)
-elif a % 100 == 0:
+elif year % 100 == 0:
     print(0)
-elif a % 4 == 0:
+elif year % 4 == 0:
     print(1)
 else:
     print(0)

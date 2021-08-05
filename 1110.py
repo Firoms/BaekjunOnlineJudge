@@ -1,14 +1,15 @@
-a = int(input())
-answer = a
+# 더하기 사이클
+N = int(input())
+answer = N
 cnt = 0
 while True:
 
-    b = int(a / 10)
-    c = int(a % 10)
-    d = b + c
-    e = d % 10
-    a = 10 * c + e
+    N1 = int(N / 10)
+    N2 = int(N % 10)
+    N3 = N1 + N2
+    N4 = N3 % 10
+    N = 10 * N2 + N4
     cnt += 1
-    if a == answer:
+    if N == answer:
         break
 print(cnt)

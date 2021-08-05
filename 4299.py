@@ -1,8 +1,8 @@
 # AFC 윔블던
 import sys
 
-P, M = map(int, sys.stdin.readline().split(" "))
-if (P + M) % 2 != 0 or (P - M) % 2 != 0 or P < M:
+plus, minus = map(int, sys.stdin.readline().split(" "))
+if (plus + minus) % 2 != 0 or (plus - minus) % 2 != 0 or plus < minus:
     print(-1)
 else:
-    print((P + M) // 2, (P - M) // 2)
+    print((plus + minus) // 2, (plus - minus) // 2)

@@ -1,8 +1,8 @@
 # 단지번호붙이기
 
 
-def num_homes(home):
-    def checkupdownleftright(x, y, num):
+def numberHomes(home):
+    def checkUpDownLeftRight(x, y, num):
         if x <= -1 or x >= len(home[0]) or y <= -1 or y >= len(home):
             return
         if home[y][x] == "1":
@@ -10,24 +10,24 @@ def num_homes(home):
         else:
             return
 
-        checkupdownleftright(x - 1, y, num)
-        checkupdownleftright(x + 1, y, num)
-        checkupdownleftright(x, y - 1, num)
-        checkupdownleftright(x, y + 1, num)
+        checkUpDownLeftRight(x - 1, y, num)
+        checkUpDownLeftRight(x + 1, y, num)
+        checkUpDownLeftRight(x, y - 1, num)
+        checkUpDownLeftRight(x, y + 1, num)
 
-    homenum = 0
-    for rownum in range(len(home)):
-        for onehomenum in range(len(home[rownum])):
-            if home[rownum][onehomenum] == "1":
-                homenum += 1
-                checkupdownleftright(onehomenum, rownum, homenum)
-    print(homenum)
+    homeNum = 0
+    for rowNum in range(len(home)):
+        for oneHomeNum in range(len(home[rowNum])):
+            if home[rowNum][oneHomeNum] == "1":
+                homeNum += 1
+                checkUpDownLeftRight(oneHomeNum, rowNum, homeNum)
+    print(homeNum)
     count = []
-    for num in range(1, homenum + 1):
-        num_count = 0
+    for num in range(1, homeNum + 1):
+        numCount = 0
         for j in homes:
-            num_count += j.count(num)
-        count.append(num_count)
+            numCount += j.count(num)
+        count.append(numCount)
     count.sort()
     for i in count:
         print(i)
@@ -36,9 +36,9 @@ def num_homes(home):
 N = int(input())
 homes = []
 for i in range(N):
-    a = input()
-    li = []
-    for j in a:
-        li.append(j)
-    homes.append(li)
-num_homes(homes)
+    L = input()
+    W = []
+    for j in L:
+        W.append(j)
+    homes.append(W)
+numberHomes(homes)

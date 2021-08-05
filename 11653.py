@@ -1,10 +1,10 @@
 # 소인수분해
-A = int(input())
-while A != 1:
-    b = 1
+N = int(input())
+while N != 1:
+    num = 1
     while True:
-        b += 1
-        if A % b == 0:
-            print(b)
-            A = A // b
+        num += 1
+        if N % num == 0:
+            print(num)
+            N = N // num
             break

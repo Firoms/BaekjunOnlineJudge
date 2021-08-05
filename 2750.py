@@ -1,7 +1,8 @@
+# 수 정렬하기
 T = int(input())
-li = []
+nums = []
 for i in range(T):
-    li.append(int(input()))
-li.sort()
-for i in li:
+    nums.append(int(input()))
+nums.sort()
+for i in nums:
     print(i)

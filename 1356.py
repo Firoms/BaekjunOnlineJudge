@@ -1,6 +1,7 @@
 # 유진수
 import sys
-def check_ujin():
+
+def checkUjin():
     N = sys.stdin.readline().rstrip()
     for i in range(1,len(N)):
         front = 1
@@ -14,5 +15,5 @@ def check_ujin():
 
     return 'NO'
 
-result = check_ujin()
+result = checkUjin()
 print(result)

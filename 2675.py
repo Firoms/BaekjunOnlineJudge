@@ -1,8 +1,9 @@
+# 문자열 반복
 T = int(input())
 for i in range(T):
-    a, b = input().split(" ")
-    a = int(a)
+    R, S = input().split(" ")
+    R = int(R)
 
-    for q in b:
-        print(q * a, end="")
+    for j in S:
+        print(j * R, end="")
     print()

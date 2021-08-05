@@ -1,4 +1,5 @@
-a = int(input())
+# 구구단
+N = int(input())
 
 for i in range(1, 10):
-    print(a, "*", i, "=", a * i)
+    print(N, "*", i, "=", N * i)

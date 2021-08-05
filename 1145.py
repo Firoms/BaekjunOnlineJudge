@@ -1,12 +1,12 @@
 # 적어도 대부분의 배수
 import sys
 
-num_li = list(map(int, sys.stdin.readline().split()))
-num = min(num_li)
+numList = list(map(int, sys.stdin.readline().split()))
+num = min(numList)
 while True:
     div = 0
     for i in range(5):
-        if num % num_li[i] == 0:
+        if num % numList[i] == 0:
             div += 1
     if div > 2:
         print(num)

@@ -1,16 +1,17 @@
+# 분해합
 N = int(input())
-check_start = N - (len(str(N)) * 9)
-if check_start <= 0:
-    check_start = 1
+checkStart = N - (len(str(N)) * 9)
+if checkStart <= 0:
+    checkStart = 1
 
-bunbaehap = 0
-for i in range(check_start, N):
-    bunbaehap = 0
+bunhaehap = 0
+for i in range(checkStart, N):
+    bunhaehap = 0
     for j in str(i):
-        bunbaehap += int(j)
-    bunbaehap += i
-    if bunbaehap == N:
+        bunhaehap += int(j)
+    bunhaehap += i
+    if bunhaehap == N:
         print(i)
         break
-if bunbaehap != N:
+if bunhaehap != N:
     print(0)

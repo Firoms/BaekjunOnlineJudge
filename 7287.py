@@ -1,1 +1,2 @@
-print("3\nmsg0909")
+# 등록
+print("117\nfiroms")

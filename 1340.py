@@ -2,8 +2,8 @@
 import datetime
 import sys
 
-Month, Day, Year, Time = sys.stdin.readline().split(" ")
-Month_dict = {
+month, day, year, time = sys.stdin.readline().split(" ")
+monthDict = {
     "January": 1,
     "February": 2,
     "March": 3,
@@ -17,11 +17,11 @@ Month_dict = {
     "November": 11,
     "December": 12,
 }
-Year = int(Year)
-Month = Month_dict[Month]
-Day = int(Day[:-1])
-H, M = map(int, Time.split(":"))
-start = datetime.datetime(Year, 1, 1, 0, 0)
-finish = datetime.datetime(Year, Month, Day, H, M)
-total = datetime.datetime(Year + 1, 1, 1, 0, 0)
+year = int(year)
+month = monthDict[month]
+day = int(day[:-1])
+H, M = map(int, time.split(":"))
+start = datetime.datetime(year, 1, 1, 0, 0)
+finish = datetime.datetime(year, month, day, H, M)
+total = datetime.datetime(year + 1, 1, 1, 0, 0)
 print((finish - start) / (total - start) * 100)

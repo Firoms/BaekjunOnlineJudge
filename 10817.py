@@ -1,7 +1,8 @@
-a, b, c = map(int, input().split(" "))
-li = []
-li.append(a)
-li.append(b)
-li.append(c)
-li.sort()
-print(li[1])
+# 세 수
+A, B, C = map(int, input().split(" "))
+nums = []
+nums.append(A)
+nums.append(B)
+nums.append(C)
+nums.sort()
+print(nums[1])

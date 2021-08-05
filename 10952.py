@@ -1,5 +1,7 @@
-a, b = map(int, input().split(" "))
+# A+B - 5
 
-while a != 0 or b != 0:
-    print(a + b)
-    a, b = map(int, input().split(" "))
+A, B = map(int, input().split(" "))
+
+while A != 0 or B != 0:
+    print(A + B)
+    A, B = map(int, input().split(" "))

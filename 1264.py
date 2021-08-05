@@ -2,13 +2,13 @@
 import sys
 from collections import defaultdict
 
-check = ["A", "E", "O", "U", "I", "a", "e", "o", "u", "i"]
+checkList = ["A", "E", "O", "U", "I", "a", "e", "o", "u", "i"]
 T = sys.stdin.readline().rstrip()
 while T != "#":
-    alp_dict = defaultdict(int)
+    alpDict = defaultdict(int)
     for i in T:
-        if i in check:
-            alp_dict[i] += 1
-    dict_sum = [i for i in alp_dict.values()]
-    print(sum(dict_sum))
+        if i in checkList:
+            alpDict[i] += 1
+    dictValueSum = [i for i in alpDict.values()]
+    print(sum(dictValueSum))
     T = sys.stdin.readline().rstrip()

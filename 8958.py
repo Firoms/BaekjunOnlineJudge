@@ -1,10 +1,10 @@
+# OX퀴즈
 T = int(input())
 for i in range(T):
-    a = input()
-    b = []
-    b = a.split("X")
-    osum = 0
-    for j in b:
+    Q = input()
+    correct = Q.split("X")
+    correctSum = 0
+    for j in correct:
         for k in range(len(j)):
-            osum += k + 1
-    print(osum)
+            correctSum += k + 1
+    print(correctSum)

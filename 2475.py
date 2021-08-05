@@ -2,7 +2,7 @@
 import sys
 
 nums = list(map(int, sys.stdin.readline().split(" ")))
-li = []
+sumList = []
 for i in nums:
-    li.append(i ** 2)
-print(sum(li) % 10)
+    sumList.append(i ** 2)
+print(sum(sumList) % 10)
