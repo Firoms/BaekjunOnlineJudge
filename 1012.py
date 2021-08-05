@@ -13,7 +13,7 @@ for _ in range(T):
     for __ in range(K):
         X, Y = map(int, sys.stdin.readline().split())
         farm[Y][X] = 1
-    worm_num = 0
+    wormNum = 0
 
     def erase(x, y):
         if x <= -1 or x >= M or y <= -1 or y >= N:
@@ -30,6 +30,6 @@ for _ in range(T):
     for m in range(M):
         for n in range(N):
             if farm[n][m] == 1:
-                worm_num += 1
+                wormNum += 1
                 erase(m, n)
-    print(worm_num)
+    print(wormNum)
