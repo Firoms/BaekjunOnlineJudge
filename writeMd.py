@@ -10,6 +10,6 @@ for algorithmType in algorithmTypes.keys():
         pythonFile = open(f"./{algorithmType}/{file}", 'r', encoding="UTF-8")
         title = pythonFile.readline()[2:-1]
         filenum = file.split('.')[0]
-        markdownFile.write(f"[{filenum}번 {title}](./{algorithmType}/{file})    \n")
+        markdownFile.write(f"- [{filenum}번 {title}](./{algorithmType}/{file})    \n")
         pythonFile.close()
 markdownFile.close()
