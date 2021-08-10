@@ -1,6 +1,7 @@
 # 단어 공부
 import string
 import sys
+
 word = sys.stdin.readline().rstrip()
 uppercaseList = [i for i in string.ascii_uppercase]
 wordAlpList = []

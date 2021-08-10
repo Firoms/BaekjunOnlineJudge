@@ -2,7 +2,7 @@
 import sys
 
 N, K, L = map(int, sys.stdin.readline().split())
-passList= []
+passList = []
 for _ in range(N):
     P = list(map(int, sys.stdin.readline().split()))
     if P[0] < L:

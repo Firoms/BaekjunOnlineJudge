@@ -1,5 +1,6 @@
 # 최댓값
 import copy
+
 numList = []
 for i in range(9):
     numList.append(int(input()))

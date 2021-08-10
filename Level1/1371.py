@@ -9,6 +9,6 @@ for alp in alphabets:
     countList.append(text.count(alp))
 maxCnt = max(countList)
 for idx, cnt in enumerate(countList):
-    if cnt==maxCnt:
+    if cnt == maxCnt:
         print(alphabets[idx], end="")
 print()

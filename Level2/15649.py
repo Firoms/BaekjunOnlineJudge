@@ -5,7 +5,6 @@ N, M = map(int, sys.stdin.readline().split())
 
 
 def sunyeol(numList):
-
     def addSunyeol(popList, testList):
         for i in range(len(testList)):
             sunList = list(popList)
