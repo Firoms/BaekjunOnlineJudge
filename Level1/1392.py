@@ -13,5 +13,5 @@ for i in range(Q):
     question = int(sys.stdin.readline().rstrip())
     for j in range(len(scores)):
         if scores[j] > question:
-            print(j+1)
+            print(j + 1)
             break

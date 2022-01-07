@@ -4,7 +4,7 @@ import sys
 
 group_num = 0
 n = int(sys.stdin.readline().rstrip())
-while n!=0:
+while n != 0:
     group_num += 1
     cnt = 0
     print(f"Group {group_num}")
@@ -15,8 +15,8 @@ while n!=0:
         papers.append(paper)
     for i in range(n):
         for j in range(1, n):
-            if papers[i][j]=='N':
-                disliker = papers[(n+i-j)%n][0]
+            if papers[i][j] == "N":
+                disliker = papers[(n + i - j) % n][0]
                 disliked = papers[i][0]
                 print(f"{disliker} was nasty about {disliked}")
                 cnt += 1
