@@ -15,7 +15,7 @@ for algorithmType in algorithmTypes.keys():
     files = os.listdir(f"./{algorithmType}")
 
     print(files)
-    
+
     for file in files:
         pythonFile = open(f"./{algorithmType}/{file}", "r", encoding="UTF-8")
         title = pythonFile.readline()[2:-1]
