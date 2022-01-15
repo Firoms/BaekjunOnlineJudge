@@ -150,6 +150,7 @@ https://www.acmicpc.net/
 - [20254번 : Site Score](./Level1/20254.py)    
 - [20299번 : 3대 측정](./Level1/20299.py)    
 - [20492번 : 세금](./Level1/20492.py)    
+- [22193번 : Multiply](./Level1/22193.py)    
 - [2231번 : 분해합](./Level1/2231.py)    
 - [2292번 : 벌집](./Level1/2292.py)    
 - [2338번 : 긴자리 계산](./Level1/2338.py)    
