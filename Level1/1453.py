@@ -4,4 +4,4 @@ import sys
 
 N = int(sys.stdin.readline().rstrip())
 customers = list(set(list(map(int, sys.stdin.readline().split()))))
-print(N-len(customers))
+print(N - len(customers))
