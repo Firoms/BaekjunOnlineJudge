@@ -2,22 +2,18 @@
 import sys
 
 times = list(map(int, sys.stdin.readline().split(":")))
-times.sort()
-if times[2] > 59 or times[0] < 0 or times[0] > 12 or times[2]==0:
-    print(0)
-elif times[0]==times[1] and times[1]==times[2]:
-    print(1)
-elif times[0]==times[1] or times[1]==times[2] or times[0]==times[2]:
-    if times[1]==0:
-        print(2)
-    elif times[1]<=12:
-        print(4)
-    else:
-        print(2)
-else:
-    if times[2]<=12:
-        print(6)
-    elif times[1]<=12:
-        print(4)
-    else:
-        print(2)
+times_list = []
+for i in range(3):
+    for j in range(2):
+        make_time = list(times)
+        new_times = [make_time.pop(i)]
+        new_times.append(make_time.pop(j))
+        new_times.append(make_time.pop(0))
+        times_list.append(new_times)
+
+cnt = 0
+for i, j , h in times_list:
+    if 1 <= i <= 12 and 0 <= j <= 59 and 0 <= h <= 59:
+        cnt += 1
+
+print(cnt)
