@@ -12,7 +12,7 @@ for i in range(3):
         times_list.append(new_times)
 
 cnt = 0
-for i, j , h in times_list:
+for i, j, h in times_list:
     if 1 <= i <= 12 and 0 <= j <= 59 and 0 <= h <= 59:
         cnt += 1
 

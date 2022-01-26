@@ -12,8 +12,8 @@ while True:
     if fly + song > N:
         song = 1
     fly += song
-    
-    if fly==N:
+
+    if fly == N:
         break
 
 print(cnt)
