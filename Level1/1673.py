@@ -7,12 +7,12 @@ while True:
         chicken = 0
         while True:
             a, b = divmod(k, n)
-            if a==0:
+            if a == 0:
                 chicken += b
                 break
             else:
-                chicken += a*n
-                k = a+b
+                chicken += a * n
+                k = a + b
         print(chicken)
     except:
         break

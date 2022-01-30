@@ -9,12 +9,12 @@ space = 0
 
 for b in B:
     while True:
-        if A[0]-b>=0:
-            A[0]-=b
+        if A[0] - b >= 0:
+            A[0] -= b
             break
         else:
             space += A.pop(0)
 for a in A:
-    space+=a
+    space += a
 
 print(space)
