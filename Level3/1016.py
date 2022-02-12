@@ -1,12 +1,19 @@
-# 제곱 ㄴㄴ 수 (실패)
-# 반례, 세제곱, 네제곱등도 고려
-
-
+# 제곱 ㄴㄴ 수
 import sys
 
 minNum, maxNum = map(int, sys.stdin.readline().split())
-noNum = 0
-for i in range(minNum, maxNum + 1):
-    if i ** 0.5 != int(i ** 0.5):
-        noNum += 1
-print(noNum)
+
+
+squared_prime_list = [True]*(maxNum-minNum+1)
+for i in range(2, int(maxNum**(1/2))+1):
+    skip = minNum//(i**2)
+    if (i**2)*skip-minNum<0:
+        skip += 1
+    for i in range((i**2)*skip-minNum, len(squared_prime_list), i**2):
+        squared_prime_list[i]=False
+
+cnt = 0
+for i in squared_prime_list:
+    if i:
+        cnt +=1
+print(cnt)
