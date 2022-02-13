@@ -4,6 +4,9 @@ algorithmTypes = {
     "Level1": "난이도 ★",
     "Level2": "난이도 ★★",
     "Level3": "난이도 ★★★",
+    "Level4": "난이도 ★★★★",
+    "Level5": "난이도 ★★★★★",
+    "Level6": "난이도 ★★★★★★",
     "Special": "번외 문제",
 }
 markdownFile = open(f"./README.md", "w", encoding="UTF-8")

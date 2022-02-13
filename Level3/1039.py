@@ -1,30 +1,38 @@
-# 교환 (실패)
-# 반례 2133 2 >> 3321
+# 교환
 import sys
+import copy
+N, K = sys.stdin.readline().split()
+N_list = [i for i in N]
+num_list = []
+change_idx = []
+for i in range(len(N)):
+    for j in range(len(N)):
+        if i!=j:
+            if i<j:
+                change_idx.append([i,j])
 
+same_list = []
 
-def exchange():
-    N, K = map(int, sys.stdin.readline().split())
-    nums = []
-    saveNums = []
-    for i in str(N):
-        nums.append(int(i))
-    if len(nums) <= 1:
-        return -1
-    for _ in range(K):
-        reverseNum = list(reversed(nums))
-        while nums[0] == max(nums) and len(nums) > 2:
-            saveNums.append(nums.pop(0))
-        if len(nums) == 2:
-            if nums[1] == 0 and saveNums == []:
-                return -1
-            nums[0], nums[1] = nums[1], nums[0]
+def change_num(N_list:list[str], K:int):
+    if K==0:
+        num = ''
+        for i in N_list:
+            num+=i
+        num_list.append(int(num))
+        return
+    for i, j in change_idx:
+        new_N_list = copy.deepcopy(N_list)
+        new_K = copy.deepcopy(K)-1
+        new_N_list[i], new_N_list[j] = new_N_list[j], new_N_list[i]
+        if new_N_list[0]=='0':
             continue
-        idx = len(nums) - reverseNum.index(max(nums)) - 1
-        nums[0], nums[idx] = nums[idx], nums[0]
-        saveNums.append(nums.pop(0))
-    exchangedNum = "".join([str(_) for _ in saveNums + nums])
-    return exchangedNum
+        if (new_N_list, new_K) not in same_list:
+            same_list.append((new_N_list, new_K))
+            change_num(new_N_list, new_K)
 
+change_num(N_list, int(K))
 
-print(exchange())
+if num_list:
+    print(max(num_list))
+else:
+    print(-1)
