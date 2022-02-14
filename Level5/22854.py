@@ -1,4 +1,4 @@
-# 고장난 계산기 (Calculator) 게임
+# 고장난 계산기 (Calculator) 게임 (시간초과 실패)
 import sys
 import copy
 
@@ -28,14 +28,41 @@ for _ in range(Q):
             query_list[i]=str(new_num)
     formula_list.append(query_list)
         
-print(formula_list)
+# print(formula_list)
 
-def calculate():
-    # 1번 기본 식 정리
-    real_formula = [['+']]
-    for i in original_list:
-        if real_formula[-1]=='+' or real_formula[-1]=='*':
-            if i=='+'or i=='*':
+real_formula_list = []
+
+for formula in formula_list:
+    real_formula = ['+']
+    for i in formula:
+        if i=='+'or i=='*':
+            if real_formula[-1]=='+' or real_formula[-1]=='*':
                 continue
-        real_formula.append(i)
+            else:
+                real_formula.append(i)
+        else:
+            if real_formula[-1]=='+' or real_formula[-1]=='*':
+                real_formula.append(i)
+            else:
+                if real_formula[-1]=='0':
+                    real_formula[-1] = i
+                else:
+                    real_formula[-1] += i
     real_formula.pop(0)
+    if real_formula:
+        if real_formula[-1]=='+' or real_formula[-1]=='*':
+            real_formula.pop(-1)
+
+    real_formula_list.append(real_formula)
+
+# print(real_formula_list)
+
+
+for formula in real_formula_list:
+    formula_str = ''
+    for i in formula:
+        formula_str += i
+    if formula_str:
+        print(eval(formula_str)%(10**9+7))
+    else: 
+        print(-1)
