@@ -2,7 +2,7 @@
 import sys
 
 T = int(sys.stdin.readline().rstrip())
-sys.setrecursionlimit(10 ** 6)
+sys.setrecursionlimit(10**6)
 
 
 for _ in range(T):

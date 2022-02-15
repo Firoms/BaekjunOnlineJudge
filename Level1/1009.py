@@ -8,7 +8,7 @@ for _ in range(T):
     b = b % 4
     if b == 0:
         b = 4
-    if a ** b % 10 == 0:
+    if a**b % 10 == 0:
         print(10)
     else:
-        print(a ** b % 10)
+        print(a**b % 10)
