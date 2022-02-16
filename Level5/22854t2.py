@@ -2,45 +2,8 @@
 
 import sys
 
-strToInt = {
-    "0": 0,
-    "1": 1,
-    "2": 2,
-    "3": 3,
-    "4": 4,
-    "5": 5,
-    "6": 6,
-    "7": 7,
-    "8": 8,
-    "9": 9,
-    "+": 10,
-    "*": 11,
-}
-intToStr = {
-    0: "0",
-    1: "1",
-    2: "2",
-    3: "3",
-    4: "4",
-    5: "5",
-    6: "6",
-    7: "7",
-    8: "8",
-    9: "9",
-    10: "+",
-    11: "*",
-    12: "0",
-    13: "1",
-    14: "2",
-    15: "3",
-    16: "4",
-    17: "5",
-    18: "6",
-    19: "7",
-    20: "8",
-    21: "9",
-    22: "+",
-}
+strToInt = {"0": 0,"1": 1,"2": 2,"3": 3,"4": 4,"5": 5,"6": 6,"7": 7,"8": 8,"9": 9,"+": 10,"*": 11,}
+intToStr = {0: "0",1: "1",2: "2",3: "3",4: "4",5: "5",6: "6",7: "7",8: "8",9: "9",10: "+",11: "*",12: "0",13: "1",14: "2",15: "3",16: "4",17: "5",18: "6",19: "7",20: "8",21: "9",22: "+",}
 
 
 class SegmentTree:
@@ -51,24 +14,26 @@ class SegmentTree:
             self.depth += 1
 
         self.lenLeaf = 2**self.depth
-        self.tree = [0 for _ in range(2 ** (self.depth + 1))]
+        self.tree = ['' for _ in range(2 ** (self.depth + 1))]
 
     def makeTree(self, node, left, right):
         if left == right:
-            if left <= len(self.nums) - 1:
+            if left <= len(self.formula) - 1:
                 self.tree[node] = self.formula[left]
                 return self.tree[node]
             else:
-                return 0
+                return ''
 
         self.tree[node] = self.makeTree(node * 2, left, (left + right) // 2)
         rightNode = self.makeTree(node * 2 + 1, (left + right) // 2 + 1, right)
-        if self.tree[node][-1] == "+" or self.tree[node][-1] == "*":
-            if rightNode == "+" or rightNode == "*":
-                return self.tree[node]
-        self.tree[node] += rightNode
+        if self.tree[node]:
+            if self.tree[node][-1] == "+" or self.tree[node][-1] == "*":
+                if rightNode == "+" or rightNode == "*":
+                    return self.tree[node]
+            if rightNode:
+                self.tree[node] += rightNode
 
-        return self.tree[node]
+            return self.tree[node]
 
     def query(self, node, left, right, l, r, x):
         if r < left or l > right:
@@ -87,12 +52,41 @@ class SegmentTree:
         return self.tree[node]
             
 
+if __name__=="__main__":
+    N, Q = map(int, sys.stdin.readline().split())
+    formula = sys.stdin.readline().rstrip()
+    tree = SegmentTree(formula)
+    original = tree.makeTree(1, 1, tree.lenLeaf)
+    
 
-N, Q = map(int, sys.stdin.readline().split())
-formula = sys.stdin.readline().rstrip()
-tree = SegmentTree(formula)
-original = tree.makeTree(1, 1, tree.lenLeaf)
+    if original:
+        if original[-1]
 
-for _ in range(Q):
-    l, r, x = map(int, sys.stdin.readline().split())
-    query = tree.query(1, 1, tree.lenLeaf, l, r, x)
+    if original:
+        if original[-1]=='+'or original[-1]=='*':
+            original = original[:-1]
+    if original:
+        # print(eval(original)%(10**9+7))
+        pass
+    else:
+        print(-1)
+    print(tree.tree)
+
+    for _ in range(Q):
+        l, r, x = map(int, sys.stdin.readline().split())
+        query = tree.query(1, 1, tree.lenLeaf, l, r, x)
+        # while len(query)>1:
+        #     if query[0]=='0' or query[0]=='+'or query[0]=='*':
+        #         query=query[1:]
+        #     else:
+        #         break
+        if query:
+            if query[-1]=='+'or query[-1]=='*':
+                query = query[:-1]
+        if query:
+            # print(eval(query)%(10**9+7))
+            pass
+        else:
+            print(-1)
+        
+        print(tree.tree)
