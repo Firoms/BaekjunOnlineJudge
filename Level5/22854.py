@@ -1,68 +1,115 @@
 # 고장난 계산기 (Calculator) 게임 (시간초과 실패)
+
 import sys
-import copy
+sys.setrecursionlimit(10**7)
+strToInt = {"0": 0,"1": 1,"2": 2,"3": 3,"4": 4,"5": 5,"6": 6,"7": 7,"8": 8,"9": 9,"+": 10,"*": 11,}
+intToStr = {0: "0",1: "1",2: "2",3: "3",4: "4",5: "5",6: "6",7: "7",8: "8",9: "9",10: "+",11: "*",12: "0",13: "1",14: "2",15: "3",16: "4",17: "5",18: "6",19: "7",20: "8",21: "9",22: "+",}
 
-N, Q = map(int, sys.stdin.readline().split())
 
-original_formula = sys.stdin.readline().rstrip()
-original_list = [i for i in original_formula]
+class SegmentTree:
+    def __init__(self, formula) -> None:
+        self.formula = "0" + formula
+        self.depth = 0
+        while 2**self.depth < len(formula):
+            self.depth += 1
 
-formula_list = []
-formula_list.append(original_list)
-for _ in range(Q):
-    query_list = copy.deepcopy(formula_list[-1])
-    l, r, x = map(int, sys.stdin.readline().split())
-    for i in range(l - 1, r):
-        if query_list[i] == "+":
-            idx_num = 10
-        elif query_list[i] == "*":
-            idx_num = 11
-        else:
-            idx_num = int(query_list[i])
-        new_num = (idx_num + x) % 12
-        if new_num == 10:
-            query_list[i] = "+"
-        elif new_num == 11:
-            query_list[i] = "*"
-        else:
-            query_list[i] = str(new_num)
-    formula_list.append(query_list)
+        self.lenLeaf = 2**self.depth
+        self.tree = ['' for _ in range(2 ** (self.depth + 1))]
 
-# print(formula_list)
-
-real_formula_list = []
-
-for formula in formula_list:
-    real_formula = ["+"]
-    for i in formula:
-        if i == "+" or i == "*":
-            if real_formula[-1] == "+" or real_formula[-1] == "*":
-                continue
+    def makeTree(self, node, left, right):
+        if node > len(self.tree)-1:
+            return ''
+        if left == right:
+            if left <= len(self.formula) - 1:
+                self.tree[node] = self.formula[left]
+                return self.tree[node]
             else:
-                real_formula.append(i)
+                return ''
+
+        self.tree[node] = self.makeTree(node * 2, left, (left + right) // 2)
+        rightNode = self.makeTree(node * 2 + 1, (left + right) // 2 + 1, right)
+        if self.tree[node]:
+            if self.tree[node][-1] == "+" or self.tree[node][-1] == "*":
+                if rightNode:
+                    if rightNode[0] == "+" or rightNode[0] == "*":
+                        if len(rightNode)>1:
+                            self.tree[node] += rightNode[1:]
+                        return self.tree[node]
+
+            if rightNode:
+                self.tree[node] += rightNode
+
+            return self.tree[node]
+
+    def query(self, node, left, right, l, r, x):
+        if node >len(self.tree)-1:
+            return ''
+        if r < left or l > right:
+            return self.tree[node]
+        if left != right:
+            self.tree[node] = self.query(node * 2, left, (left + right) // 2, l, r, x)
+            rightNode = self.query(
+                node * 2 + 1, (left + right) // 2 + 1, right, l, r, x
+            )
+            if self.tree[node][-1] == "+" or self.tree[node][-1] == "*":
+                if rightNode:
+                    if rightNode[0] == "+" or rightNode[0] == "*":
+                        if len(rightNode)>1:
+                            self.tree[node] += rightNode[1:]
+                        else:
+                            return self.tree[node]
+            if rightNode:
+                self.tree[node] += rightNode
         else:
-            if real_formula[-1] == "+" or real_formula[-1] == "*":
-                real_formula.append(i)
-            else:
-                if real_formula[-1] == "0":
-                    real_formula[-1] = i
-                else:
-                    real_formula[-1] += i
-    real_formula.pop(0)
-    if real_formula:
-        if real_formula[-1] == "+" or real_formula[-1] == "*":
-            real_formula.pop(-1)
+            self.tree[node] = intToStr[strToInt[self.tree[node]]+x]
+        return self.tree[node]
+            
 
-    real_formula_list.append(real_formula)
-
-# print(real_formula_list)
-
-
-for formula in real_formula_list:
-    formula_str = ""
-    for i in formula:
-        formula_str += i
-    if formula_str:
-        print(eval(formula_str) % (10**9 + 7))
+if __name__=="__main__":
+    N, Q = map(int, sys.stdin.readline().split())
+    formula = sys.stdin.readline().rstrip()
+    tree = SegmentTree(formula)
+    original = tree.makeTree(1, 1, tree.lenLeaf)
+    
+    if original:
+        if original[0]=='+' or original[0]=='*':
+            original = original[1:]
+    if original:
+        if original[-1]=='+'or original[-1]=='*':
+            original = original[:-1]
+    
+    if original:
+        cntPlus = original.count("+")
+        cntMult = original.count("*")
+        original = original.replace("+", "\")+int(\"", cntPlus)
+        original = original.replace("*", "\")*int(\"", cntMult)
+        original = "(int(\"" + original + "\"))"
+        print(eval(original)%(10**9+7))
     else:
         print(-1)
+
+    for _ in range(Q):
+        l, r, x = map(int, sys.stdin.readline().split())
+        query = tree.query(1, 1, tree.lenLeaf, l, r, x)
+
+        if query:
+            if query[0]=='+'or query[0]=='*':
+                query = query[1:]
+        if query:
+            if query[-1]=='+'or query[-1]=='*':
+                query = query[:-1]
+
+        if query:
+            cntPlus = query.count("+")
+            cntMult = query.count("*")
+            query = query.replace("+", "\")+int(\"", cntPlus)
+            query = query.replace("*", "\")*int(\"", cntMult)
+            query = "(int(\"" + query + "\"))"
+            error1 = query.count("int(\"\")+")
+            error2 = query.count("int(\"\")*")
+            query = query.replace("int(\"\")+", "", error1)
+            query = query.replace("int(\"\")*", "", error2)
+            print(eval(query)%(10**9+7))
+        else:
+            print(-1)
+        
