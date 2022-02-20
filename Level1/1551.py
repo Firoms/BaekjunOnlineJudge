@@ -8,8 +8,8 @@ original_list = list(map(int, sys.stdin.readline().split(",")))
 
 
 for _ in range(K):
-    for __ in range(len(original_list)-1):
-        original_list.append(original_list[1]-original_list[0])
+    for __ in range(len(original_list) - 1):
+        original_list.append(original_list[1] - original_list[0])
         original_list.pop(0)
     original_list.pop(0)
 
