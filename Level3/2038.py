@@ -3,13 +3,13 @@
 import sys
 n = int(sys.stdin.readline().rstrip())
 
-golomb = [0, 1, 2, 2]
-num = 3
 
-while len(golomb)<n:
-    for _ in range(golomb[num]):
-        golomb.append(num)
-        
-    num += 1
-
-print(golomb)
+nums = [1]
+result = 1
+i = 0
+while nums[-1]<n:
+    i += 1
+    if i in nums:
+        result += 1
+    nums.append(nums[-1]+result)
+print(len(nums))
