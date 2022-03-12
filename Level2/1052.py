@@ -13,17 +13,17 @@ while water > K:
     new_waters = defaultdict(int)
     for key, val in waters.items():
         next, cur = divmod(val, 2)
-        if next!= 0:
-            new_waters[key+1] += next
-        if cur==1:
+        if next != 0:
+            new_waters[key + 1] += next
+        if cur == 1:
             new_waters[key] = cur
     if waters == new_waters:
         waters = new_waters
-        waters[min(waters.keys())]+=1
-        add += 2**(min(waters.keys())-1)
+        waters[min(waters.keys())] += 1
+        add += 2 ** (min(waters.keys()) - 1)
     else:
         waters = new_waters
     water = sum(waters.values())
     # print(waters)
-    
+
 print(add)
