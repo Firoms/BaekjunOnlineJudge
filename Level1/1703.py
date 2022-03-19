@@ -8,7 +8,7 @@ while tree != [0]:
     leaf = 1
     for _ in range(tree[0]):
         leaf *= tree[branch]
-        leaf -= tree[branch+1]
+        leaf -= tree[branch + 1]
         branch += 2
     print(leaf)
     tree = list(map(int, sys.stdin.readline().split()))

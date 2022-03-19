@@ -9,11 +9,13 @@ for _ in range(T):
     cnt = 0
     for i in range(n):
         cx, cy, r = map(int, sys.stdin.readline().split())
-        
-        if r>(abs(x1-cx)**2+abs(y1-cy)**2)**(1/2):
+
+        if r > (abs(x1 - cx) ** 2 + abs(y1 - cy) ** 2) ** (1 / 2):
             cnt += 1
-        if r>(abs(x2-cx)**2+abs(y2-cy)**2)**(1/2):
+        if r > (abs(x2 - cx) ** 2 + abs(y2 - cy) ** 2) ** (1 / 2):
             cnt += 1
-        if r>(abs(x1-cx)**2+abs(y1-cy)**2)**(1/2) and r>(abs(x2-cx)**2+abs(y2-cy)**2)**(1/2):
+        if r > (abs(x1 - cx) ** 2 + abs(y1 - cy) ** 2) ** (1 / 2) and r > (
+            abs(x2 - cx) ** 2 + abs(y2 - cy) ** 2
+        ) ** (1 / 2):
             cnt -= 2
     print(cnt)

@@ -9,14 +9,14 @@ for i in range(N):
     chess_board.append(chess_line)
 
 
-for n in range(N-7):
-    for m in range(M-7):
+for n in range(N - 7):
+    for m in range(M - 7):
         cnt = 0
-        checking = True # True는 B, False는 W 
+        checking = True  # True는 B, False는 W
         for i in range(8):
             checking = not checking
             for j in range(8):
-                if checking and chess_board[n+i][m+j]=='W':
+                if checking and chess_board[n + i][m + j] == "W":
                     cnt += 1
-                if not checking and chess_board[n+i][m+j]=='B':
+                if not checking and chess_board[n + i][m + j] == "B":
                     cnt += 1
