@@ -1,16 +1,15 @@
 # 골롱 수열
-
 import sys
 
 n = int(sys.stdin.readline().rstrip())
 
 
-nums = [1]
-result = 1
-i = 0
-while nums[-1] < n:
-    i += 1
-    if i in nums:
-        result += 1
-    nums.append(nums[-1] + result)
-print(len(nums))
+def golomb_recursion(pre, cur):
+    if cur[0] <= n <= cur[1]:
+        return 0
+    
+    sum_pre = sum([i for i in range(pre[0], pre[1]+1)])
+
+
+
+golomb_recursion([2, 2], [3, 3])
