@@ -2,19 +2,15 @@
 import sys
 
 n = int(sys.stdin.readline().rstrip())
+suyeol = [0]*(n+1)
 
 
-def golomb_recursion(pre, cur):
-    if cur[0] <= n <= cur[1]:
-        return 0
+suyeol[1], suyeol[2], suyeol[3] = 1, 2, 2
+idx = 3
+last = 4
+while suyeol[n]==0:
+    suyeol[last : last + suyeol[idx]] = [idx for _ in range(suyeol[idx])]
+    last += suyeol[idx]
+    idx += 1
 
-    sum_pre = sum([i for i in range(pre[0], pre[1] + 1)])
-    len_cur = cur[1] - cur[0] + 1
-    len_pre = pre[1] - pre[0] + 1
-
-    len_new_cur = sum_pre * len_cur / len_pre
-
-    golomb_recursion(cur, new_cur)
-
-
-golomb_recursion([2, 2], [3, 3])
+print(suyeol[n])
