@@ -2,15 +2,24 @@
 import sys
 
 n = int(sys.stdin.readline().rstrip())
-suyeol = [0]*(n+1)
 
+def golomb():
+    suyeol = [(0, 0), (1, 1), (2, 3), (4, 5)]
+    idx = 3
+    last = 5
+    while True:
+        start, end = suyeol[idx]
+        for _ in range(start, end+1):
+            if last+1<=n<=last+idx:
+                return len(suyeol)
+            suyeol.append((last+1, last+idx))
+            last += idx
+        idx += 1
 
-suyeol[1], suyeol[2], suyeol[3] = 1, 2, 2
-idx = 3
-last = 4
-while suyeol[n]==0:
-    suyeol[last : last + suyeol[idx]] = [idx for _ in range(suyeol[idx])]
-    last += suyeol[idx]
-    idx += 1
-
-print(suyeol[n])
+if n==1:
+    result = 1
+elif n==2 or n==3:
+    result = 2
+else:
+    result = golomb()
+print(result)
