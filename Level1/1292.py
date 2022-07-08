@@ -1,5 +1,6 @@
 # 쉽게 푸는 문제
 import sys
+
 A, B = map(int, sys.stdin.readline().split())
 
 num = 1
