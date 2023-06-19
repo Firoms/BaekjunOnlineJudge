@@ -6,6 +6,6 @@ N = int(sys.stdin.readline().rstrip())
 sum_num = 0
 
 for i in range(1, N):
-    sum_num += (N*i + i)
+    sum_num += N * i + i
 
 print(sum_num)

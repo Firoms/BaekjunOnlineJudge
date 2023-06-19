@@ -1,26 +1,8 @@
-# 고장난 계산기 (Calculator) 게임 (시간초과 실패)
-# 세그먼트 트리?
-# 그래도 시간 초과...
-# 너무 빡센 제한
-
-import sys
-
-sys.setrecursionlimit(10**7)
-strToInt = {
-    "0": 0,
-    "1": 1,
-    "2": 2,
-    "3": 3,
-    "4": 4,
-    "5": 5,
-    "6": 6,
-    "7": 7,
-    "8": 8,
-    "9": 9,
-    "+": 10,
-    "*": 11,
-}
-intToStr = {
+# 고장난 계산기 (Calculator) 게임 <미해결>
+N, Q = map(int, input().split())
+formula = input()
+caltree = ["" for i in range(8 * N)]
+change = {
     0: "0",
     1: "1",
     2: "2",
@@ -43,113 +25,75 @@ intToStr = {
     19: "7",
     20: "8",
     21: "9",
-    22: "+",
+    22: "+"
 }
 
 
-class SegmentTree:
-    def __init__(self, formula) -> None:
-        self.formula = "0" + formula
-        self.depth = 0
-        while 2**self.depth < len(formula):
-            self.depth += 1
-
-        self.lenLeaf = 2**self.depth
-        self.tree = ["" for _ in range(2 ** (self.depth + 1))]
-
-    def makeTree(self, node, left, right):
-        if node > len(self.tree) - 1:
-            return ""
-        if left == right:
-            if left <= len(self.formula) - 1:
-                self.tree[node] = self.formula[left]
-                return self.tree[node]
-            else:
-                return ""
-
-        self.tree[node] = self.makeTree(node * 2, left, (left + right) // 2)
-        rightNode = self.makeTree(node * 2 + 1, (left + right) // 2 + 1, right)
-        if self.tree[node]:
-            if self.tree[node][-1] == "+" or self.tree[node][-1] == "*":
-                if rightNode:
-                    if rightNode[0] == "+" or rightNode[0] == "*":
-                        if len(rightNode) > 1:
-                            self.tree[node] += rightNode[1:]
-                        return self.tree[node]
-
-            if rightNode:
-                self.tree[node] += rightNode
-
-            return self.tree[node]
-
-    def query(self, node, left, right, l, r, x):
-        if node > len(self.tree) - 1:
-            return ""
-        if r < left or l > right:
-            return self.tree[node]
-        if left != right:
-            self.tree[node] = self.query(node * 2, left, (left + right) // 2, l, r, x)
-            rightNode = self.query(
-                node * 2 + 1, (left + right) // 2 + 1, right, l, r, x
-            )
-            if self.tree[node][-1] == "+" or self.tree[node][-1] == "*":
-                if rightNode:
-                    if rightNode[0] == "+" or rightNode[0] == "*":
-                        if len(rightNode) > 1:
-                            self.tree[node] += rightNode[1:]
-                        else:
-                            return self.tree[node]
-            if rightNode:
-                self.tree[node] += rightNode
-        else:
-            self.tree[node] = intToStr[strToInt[self.tree[node]] + x]
-        return self.tree[node]
-
-
-if __name__ == "__main__":
-    N, Q = map(int, sys.stdin.readline().split())
-    formula = sys.stdin.readline().rstrip()
-    tree = SegmentTree(formula)
-    original = tree.makeTree(1, 1, tree.lenLeaf)
-
-    if original:
-        if original[0] == "+" or original[0] == "*":
-            original = original[1:]
-    if original:
-        if original[-1] == "+" or original[-1] == "*":
-            original = original[:-1]
-
-    if original:
-        cntPlus = original.count("+")
-        cntMult = original.count("*")
-        original = original.replace("+", '")+int("', cntPlus)
-        original = original.replace("*", '")*int("', cntMult)
-        original = '(int("' + original + '"))'
-        print(eval(original) % (10**9 + 7))
+def calmerge(left, right):
+    if (left[-1] == "+" or left[-1] == "*") and (right[0] == "+" or right[0] == "*"):
+        return left + right[1:]
     else:
-        print(-1)
+        return left + right
 
-    for _ in range(Q):
-        l, r, x = map(int, sys.stdin.readline().split())
-        query = tree.query(1, 1, tree.lenLeaf, l, r, x)
 
-        if query:
-            if query[0] == "+" or query[0] == "*":
-                query = query[1:]
-        if query:
-            if query[-1] == "+" or query[-1] == "*":
-                query = query[:-1]
+def calbuild(caltree, Node, left, right):
+    if left == right:
+        caltree[Node] = formula[left]
+        return caltree[Node]
 
-        if query:
-            cntPlus = query.count("+")
-            cntMult = query.count("*")
-            query = query.replace("+", '")+int("', cntPlus)
-            query = query.replace("*", '")*int("', cntMult)
-            query = '(int("' + query + '"))'
-            error1 = query.count('int("")+')
-            error2 = query.count('int("")*')
-            query = query.replace('int("")+', "", error1)
-            query = query.replace('int("")*', "", error2)
-            print(eval(query) % (10**9 + 7))
+    mid = left + (right - left) // 2
+    left_val = calbuild(caltree, 2 * Node, left, mid)
+    right_val = calbuild(caltree, 2 * Node + 1, mid + 1, right)
+    caltree[Node] = calmerge(left_val, right_val)
+    return caltree[Node]
+
+
+calbuild(caltree, 1, 0, N - 1)
+
+
+def calupdate(idx, val, Node, left, right):
+    if idx < left or idx > right:
+        return caltree[Node]
+
+    if left == right:
+        if caltree[Node] == "+":
+            caltree[Node] = change[10 + val]
+        elif caltree[Node] == "*":
+            caltree[Node] = change[11 + val]
         else:
-            print(-1)
+            caltree[Node] = change[int(caltree[Node]) + val]
+        return caltree[Node]
+
+    mid = left + (right - left) // 2
+    left_val = calupdate(idx, val, 2 * Node, left, mid)
+    right_val = calupdate(idx, val, 2 * Node + 1, mid + 1, right)
+    caltree[Node] = calmerge(left_val, right_val)
+    return caltree[Node]
+
+
+def calculate(caltree_formula):
+    if caltree_formula:
+        if caltree_formula[0] == "*" or caltree_formula[0] == "+":
+            caltree_formula = caltree_formula[1:]
+    if caltree_formula:
+        if caltree_formula[-1] == "*" or caltree_formula[-1] == "+":
+            caltree_formula = caltree_formula[:-1]
+
+    if caltree_formula == "":
+        return -1
+    else:
+        while caltree_formula[0] == "0":
+            if caltree_formula == "0":
+                return 0
+            else:
+                caltree_formula = caltree_formula[1:]
+        return eval(caltree_formula) % (10**9 + 7)
+
+
+print(calculate(caltree[1]))
+
+for i in range(Q):
+    l, r, x = map(int, input().split())
+    for j in range(l - 1, r):
+        calupdate(j, x, 1, 0, N - 1)
+    print(calculate(caltree[1]))

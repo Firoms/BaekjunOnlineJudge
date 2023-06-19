@@ -8,13 +8,12 @@ for _ in range(T):
     i = 2
     result = True
     while i <= 10**6:
-        if num%i==0:
+        if num % i == 0:
             result = False
             break
         i += 1
-    
+
     if result == True:
         print("YES")
     else:
         print("NO")
-

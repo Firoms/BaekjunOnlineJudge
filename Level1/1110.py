@@ -3,7 +3,6 @@ N = int(input())
 answer = N
 cnt = 0
 while True:
-
     N1 = int(N / 10)
     N2 = int(N % 10)
     N3 = N1 + N2
